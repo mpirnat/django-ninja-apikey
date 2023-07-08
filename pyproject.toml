@@ -1,60 +1,28 @@
-[build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
-
-[project]
-name = "django-ninja-apikey"
-authors = [{name = "Maximilian Wassink", email="wassink.maximilian@protonmail.com"}]
+[tool.poetry]
+name = "django-ninja-apikey-mpirnat"
+version = "0.2.1"
+description = ""
+authors = [
+    "Maximilian Wassink <wassink.maximilian@protonmail.com>",
+    "Mike Pirnat <mpirnat@gmail.com>"
+]
 readme = "README.md"
-requires-python = "~=3.6.2"
-classifiers = [
-    "Environment :: Web Environment",
-    "Framework :: Django",
-    "Framework :: Django :: 3.0",
-    "Framework :: Django :: 3.1",
-    "Framework :: Django :: 3.2",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Information Technology",
-    "Intended Audience :: System Administrators",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Topic :: Internet",
-    "Topic :: Internet :: WWW/HTTP",
-    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
-    "Topic :: Security",
-    "Topic :: Software Development :: Libraries",
-    "Topic :: Software Development :: Libraries :: Application Frameworks",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
-dynamic = ["version", "description"]
-keywords = ["django", "rest", "ninja", "auth", "apikey"]
-dependencies = [
-    "django",
-    "django-ninja"
-]
+packages = [{include = "ninja_apikey"}]
 
-[project.urls]
-Source = "https://github.com/mawassk/django-ninja-apikey"
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^4"
+django-ninja = "^0.22.2"
 
-[project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov",
-    "pytest-django",
-    "black",
-    "isort",
-    "flake8",
-    "flake8-bugbear",
-    "flake8-bandit",
-    "mypy",
-    "django-stubs",
-    ]
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pytest-django = "^4.5.2"
+black = "^23.3.0"
+ruff = "^0.0.277"
+mypy = "^1.4.1"
+django-stubs = "^4.2.3"
 
-[tool.flit.module]
-name = "ninja_apikey"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
